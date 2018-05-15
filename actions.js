@@ -3,8 +3,8 @@ import uuid from 'uuid';
 const boundAddComment = text => dispatch(addComment(text));
 const boundEditComment = (text, id) => dispatch(editComment(text, id));
 const boundRemoveComment = id => dispatch(removeComment(id));
-const boundThumbUpComment = (id, votes) => dispatch(thumbUpComment(id, votes));
-const boundThumbDownComment = (id, votes) => dispatch(thumbDownComment(id, votes));
+const boundThumbUpComment = id => dispatch(thumbUpComment(id));
+const boundThumbDownComment = id => dispatch(thumbDownComment(id));
 
 function addComment(text) {
 	return {
@@ -29,19 +29,17 @@ function removeComment(id) {
 	}
 }
 
-function thumbUpComment(id, votes) {
+function thumbUpComment(id) {
 	return {
 		type: THUMB_UP_COMMENT,
-		id,
-		votes
+		id
 	}
 }
 
-function thumbDownComment(id, votes) {
+function thumbDownComment(id) {
 	return {
 		type: THUMB_DOWN_COMMENT,
-		id,
-		votes
+		id
 	}
 }
 
